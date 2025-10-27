@@ -9,7 +9,7 @@
 
 ### 技術架構特性
 - **Chrome Extension (Manifest V3)**: 側邊欄整合，內容腳本注入
-- **Gemini AI 整合**: 智能對話生成，角色識別
+- **Chrome Built-in AI (Prompt API)**: 本地 AI 處理，智能對話生成，角色識別
 - **Supabase 後端**: 用戶管理，API 代理，使用量追蹤
 - **現代化 UI**: CSS Grid 佈局，響應式設計，動畫過渡
 

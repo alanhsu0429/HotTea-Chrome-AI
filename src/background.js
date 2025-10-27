@@ -1,4 +1,4 @@
-// HotTea Background Script with Simplified API Client
+// HotTea Background Script with Chrome Prompt API Integration
 import { logger } from './utils/logger.js';
 import { registerUser, setUninstallToken } from './api-client.js';
 import { getMessage } from './utils/i18n-helper.js';

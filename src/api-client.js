@@ -1,4 +1,4 @@
-// api-client.js (v8 - Session Reuse for Performance)
+// api-client.js - Chrome Prompt API Client with Session Management
 import { logger } from './utils/logger.js';
 import { getSupabaseConfig } from './config.js';
 import { getMessage } from './utils/i18n-helper.js';
