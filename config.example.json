@@ -1,0 +1,13 @@
+{
+  "supabase": {
+    "url": "https://your-project-id.supabase.co",
+    "anonKey": "your-supabase-anon-key-here"
+  },
+  "google": {
+    "clientId": "your-google-oauth-client-id"
+  },
+  "development": {
+    "debug": true,
+    "extensionId": "your-extension-id-for-development"
+  }
+}

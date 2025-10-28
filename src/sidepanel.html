@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HotTea</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="panel-container">
+    <div class="header">
+      <!-- Default state: show brand on right -->
+      <div class="header-default" id="headerDefault">
+        <div class="spacer"></div>
+        <div class="title">
+          <img src="icons/HTBlackLogo.png" class="logo" alt="HotTea">
+          <span>HotTea</span>
+        </div>
+      </div>
+
+      <!-- Result state: show control buttons + brand -->
+      <div class="header-result" id="headerResult" style="display: none;">
+        <div class="header-buttons">
+          <button id="headerBackBtn" class="header-btn" data-i18n="back"></button>
+          <button id="headerRegenerateBtn" class="header-btn" data-i18n="regenerate"></button>
+        </div>
+        <div class="title">
+          <img src="icons/HTBlackLogo.png" class="logo" alt="HotTea">
+          <span>HotTea</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="welcome" class="view">
+        <div class="center">
+          <img src="icons/HotTeaFont.svg" class="font-logo" alt="HotTea">
+          <button id="loginBtn" class="melon-btn" style="display: none;" data-i18n="signInWithGoogle">
+          </button>
+          <button id="melonBtn" class="melon-btn" style="display: none;" data-i18n="eatMelon">
+          </button>
+        </div>
+      </div>
+      
+      <div id="loading" class="loading view" style="display: none;">
+        <div class="center">
+          <div class="spinner"></div>
+          <p class="loading-text" id="loadingText"></p>
+          <button id="cancelLoadingBtn" class="cancel-loading-btn" data-i18n="cancelGeneration" style="display: none;">
+          </button>
+        </div>
+      </div>
+
+      <div id="result" class="view" style="display: none;">
+        <div id="dialogueList" class="dialogue-list"></div>
+
+        <!-- Suggested questions section -->
+        <div id="suggestedQuestions" class="suggested-questions" style="display: none;" data-collapsed="false">
+          <div class="suggestions-header">
+            <span class="toggle-icon">▼</span>
+            💡 <span data-i18n="suggestedQuestionsTitle"></span>
+          </div>
+          <div class="suggestions-list"></div>
+        </div>
+
+        <!-- Bottom spacer (prevent content overlap with input area) -->
+        <div class="bottom-spacer"></div>
+      </div>
+
+      <div id="error" class="view" style="display: none;">
+        <div class="center">
+          <div class="error-content">
+            <div class="error-icon">😵</div>
+            <p id="errorText" data-i18n="errorGeneral"></p>
+            <p class="error-contact"><span data-i18n="errorContact"></span> <a href="mailto:alan20000429@gmail.com">alan20000429@gmail.com</a></p>
+            <button id="retryBtn" class="retry-btn" data-i18n="retry"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q&A input area - moved to independent level -->
+      <div id="qaInput" class="qa-input-container" style="display: none;">
+        <div class="qa-input-wrapper">
+          <input
+            type="text"
+            id="qaInputField"
+            class="qa-input-field"
+            data-i18n-placeholder="askQuestionPlaceholder"
+            placeholder=""
+            maxlength="200"
+          >
+          <button id="qaSubmitBtn" class="qa-submit-btn">
+            <span class="qa-submit-icon">➤</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+{
+  "extensionName": {
+    "message": "HotTea",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "Turn any article into a fun group chat with AI",
+    "description": "Extension description - localized"
+  },
+  "openSidepanel": {
+    "message": "Open HotTea",
+    "description": "Toolbar tooltip"
+  },
+
+  "eatMelon": {
+    "message": "Spill the Tea!",
+    "description": "Main action button - localized from 我要吃瓜"
+  },
+  "back": {
+    "message": "Go Back",
+    "description": "Back button - casual tone"
+  },
+  "regenerate": {
+    "message": "Try Again",
+    "description": "Regenerate button - more natural"
+  },
+  "retry": {
+    "message": "Retry",
+    "description": "Retry button"
+  },
+  "cancelGeneration": {
+    "message": "Never Mind",
+    "description": "Cancel button - natural cancellation"
+  },
+  "signOut": {
+    "message": "Sign Out",
+    "description": "Sign out button text"
+  },
+
+  "loginRequired": {
+    "message": "Please sign in with Google to use HotTea",
+    "description": "Login required error message"
+  },
+  "loginFailed": {
+    "message": "Login failed",
+    "description": "Login error message"
+  },
+  "quotaExceeded": {
+    "message": "Daily quota exceeded. Please try tomorrow.",
+    "description": "Usage quota exceeded error"
+  },
+  "pageNotReady": {
+    "message": "Page not ready. Please refresh and try again.",
+    "description": "Content script not ready error"
+  },
+  "insufficientContent": {
+    "message": "Insufficient content. Please choose a richer article.",
+    "description": "Article content too short error"
+  },
+  "cookieNoticeDetected": {
+    "message": "This page shows a Cookie Notice. Please accept cookies on the page first, then try again.",
+    "description": "Cookie consent wall detected"
+  },
+  "privacyPolicyDetected": {
+    "message": "This appears to be a privacy policy page. Please navigate to an article page.",
+    "description": "Privacy policy page detected"
+  },
+  "paywallDetected": {
+    "message": "This article is behind a paywall. Please subscribe or choose another article.",
+    "description": "Paywall detected"
+  },
+  "generationCancelled": {
+    "message": "Generation cancelled",
+    "description": "User cancelled generation"
+  },
+  "webPageRequired": {
+    "message": "Please use this feature on a web page",
+    "description": "Not on web page error"
+  },
+  "unknownError": {
+    "message": "An unknown error occurred",
+    "description": "Generic error message"
+  },
+
+  "signInWithGoogle": {
+    "message": "Sign in with Google",
+    "description": "Google sign in button text"
+  },
+
+  "defaultUserName": {
+    "message": "User",
+    "description": "Default user name"
+  },
+
+  "thinkingMessage": {
+    "message": "Let me think...",
+    "description": "AI thinking message in Q&A"
+  },
+  "discussNews": {
+    "message": "discuss this news",
+    "description": "Q&A discuss news text"
+  },
+  "letDiscuss": {
+    "message": "Let's discuss",
+    "description": "Q&A button text"
+  },
+
+  "loadingMessage1": {
+    "message": "OMG, you gotta hear this!",
+    "description": "Loading message 1 - excited friend sharing gossip"
+  },
+  "loadingMessage2": {
+    "message": "So get this...",
+    "description": "Loading message 2 - story opener"
+  },
+  "loadingMessage3": {
+    "message": "Okay, here's the deal...",
+    "description": "Loading message 3 - casual explanation starter"
+  },
+  "loadingMessage4": {
+    "message": "You're not gonna believe this...",
+    "description": "Loading message 4 - dramatic reveal"
+  },
+  "loadingMessage5": {
+    "message": "Hold up, let me tell you...",
+    "description": "Loading message 5 - getting attention"
+  },
+  "loadingMessage6": {
+    "message": "Breaking it down for you...",
+    "description": "Loading message 6 - explaining"
+  },
+
+  "askQuestionPlaceholder": {
+    "message": "What else do you wanna know?",
+    "description": "Question input placeholder - very casual"
+  },
+
+  "errorGeneral": {
+    "message": "Oops! Something went wrong. Try refreshing?",
+    "description": "General error - friendly tone"
+  },
+  "errorContact": {
+    "message": "Still having issues? Hit us up at",
+    "description": "Contact prompt - casual"
+  },
+  "errorNetwork": {
+    "message": "Can't connect right now",
+    "description": "Network error - simple"
+  },
+  "errorContentExtraction": {
+    "message": "Couldn't grab the article",
+    "description": "Content extraction error - casual"
+  },
+  "errorGenerationFailed": {
+    "message": "Hmm, that didn't work. Wanna try again?",
+    "description": "Generation failed - questioning tone"
+  },
+  "errorTimeout": {
+    "message": "This is taking forever... 😅",
+    "description": "Timeout error - relatable frustration"
+  },
+
+  "loadingPersonInfo": {
+    "message": "Looking up $NAME$...",
+    "description": "Loading person info",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "personInfoUnavailable": {
+    "message": "Can't find info on this person.",
+    "description": "Person info unavailable - direct"
+  },
+  "personInfoNoDetails": {
+    "message": "No details available",
+    "description": "No details - simple"
+  },
+  "possibleReasons": {
+    "message": "Here's why:",
+    "description": "Possible reasons - casual explanation"
+  },
+  "reasonNoWikipedia": {
+    "message": "They're not on Wikipedia",
+    "description": "Reason: No Wikipedia entry - conversational"
+  },
+  "reasonNetworkIssue": {
+    "message": "Network's being weird",
+    "description": "Reason: Network issue - personified"
+  },
+  "reasonNameMismatch": {
+    "message": "Might be a different person with the same name",
+    "description": "Reason: Name mismatch - explanatory"
+  },
+
+  "imageSource": {
+    "message": "Image: Wikimedia Commons",
+    "description": "Image source - concise"
+  },
+
+  "clickToViewInfo": {
+    "message": "Who's $NAME$?",
+    "description": "Avatar tooltip - curious question",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+
+  "processingArticle": {
+    "message": "Reading the article real quick...",
+    "description": "Processing article - casual speed"
+  },
+  "generatingDialogue": {
+    "message": "Cooking up a convo...",
+    "description": "Generating dialogue - creative metaphor"
+  },
+  "almostDone": {
+    "message": "Almost there...",
+    "description": "Almost done - encouraging"
+  },
+  "done": {
+    "message": "Done! Check it out 👇",
+    "description": "Completion - excited with direction"
+  },
+
+  "noContent": {
+    "message": "Nothing here yet",
+    "description": "Empty state - simple"
+  },
+  "notNewsWebsite": {
+    "message": "This doesn't look like a news article 🤔",
+    "description": "Not news website - thinking emoji"
+  },
+
+  "tryDifferentArticle": {
+    "message": "Try another article?",
+    "description": "Suggestion - questioning"
+  },
+  "shareWithFriends": {
+    "message": "This is gold! Share it! 🔥",
+    "description": "Share prompt - enthusiastic slang"
+  },
+
+  "invalidConfig": {
+    "message": "Invalid configuration",
+    "description": "Configuration error"
+  },
+  "missingApiKey": {
+    "message": "API key missing",
+    "description": "API key not found"
+  },
+  "networkError": {
+    "message": "Network connection failed",
+    "description": "Network connection issue"
+  },
+  "apiKeyValidationFailed": {
+    "message": "API key validation failed",
+    "description": "API key is invalid"
+  },
+  "serverError": {
+    "message": "Server error",
+    "description": "Server response error"
+  },
+  "rateLimitExceeded": {
+    "message": "Too many requests, please try again later",
+    "description": "API rate limit"
+  },
+  "unexpectedResponseFormat": {
+    "message": "Server response format is abnormal",
+    "description": "Response format error"
+  },
+  "authTokenMissing": {
+    "message": "Authentication failed",
+    "description": "Auth token missing"
+  },
+  "userDataMissing": {
+    "message": "User data is incomplete",
+    "description": "User data missing"
+  },
+  "backgroundScriptNotReady": {
+    "message": "Background script not ready",
+    "description": "Background script state error"
+  },
+  "configLoadFailed": {
+    "message": "Configuration load failed",
+    "description": "Config load error"
+  },
+  "responseProcessingError": {
+    "message": "Response processing failed",
+    "description": "Processing error"
+  },
+  "suggestedQuestionsTitle": {
+    "message": "Related Questions",
+    "description": "Suggested questions section title"
+  },
+  "promptApiNotAvailable": {
+    "message": "Prompt API (window.ai) is not available in this browser. Please update to the latest Chrome version.",
+    "description": "Error when window.ai is not available"
+  },
+  "jsonParsingFailed": {
+    "message": "Failed to parse the AI's response. It might be incomplete.",
+    "description": "Error when JSON parsing of AI response fails"
+  }
+}

@@ -1,0 +1,41 @@
+# Environment Variables (sensitive)
+.env
+.env.local
+config.local.json
+
+# Supabase
+.supabase/
+
+# Development files
+.DS_Store
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Build outputs
+build/
+dist/
+dist-dev/
+dist-prod/
+config.json
+
+# Chrome extension development
+*.pem
+*.crx
+*.zip
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db

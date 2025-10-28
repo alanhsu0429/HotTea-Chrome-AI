@@ -1,0 +1,33 @@
+{
+  "name": "hottea-chrome-extension",
+  "version": "5.10.0",
+  "description": "AI-powered news dialogue generator with Supabase backend",
+  "scripts": {
+    "dev": "webpack --config webpack.dev.js --mode development --watch",
+    "build:dev": "webpack --config webpack.dev.js --mode production",
+    "build:prod": "webpack --config webpack.prod.js --mode production",
+    "build:all": "npm run build:dev && npm run build:prod",
+    "version:sync": "node scripts/sync-version.js",
+    "prebuild:dev": "npm run version:sync",
+    "prebuild:prod": "npm run version:sync",
+    "version": "npm run version:sync && git add -A",
+    "release": "node scripts/release.js"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "news",
+    "supabase",
+    "gemini"
+  ],
+  "author": "HotTea Team",
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0"
+  }
+}

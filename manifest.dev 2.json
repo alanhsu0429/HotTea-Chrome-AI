@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "default_locale": "en",
+  "name": "__MSG_extensionName__ 開發版",
+  "version": "5.10",
+  "description": "__MSG_extensionDescription__",
+  "permissions": [
+    "sidePanel",
+    "tabs",
+    "scripting",
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://*.supabase.co/*",
+    "*://*/*"
+  ],
+  "oauth2": {
+    "client_id": "847443792962-32no6t9nj0tv5ugm0j9bt00beg6s72lc.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile"
+    ]
+  },
+  "action": {
+    "default_title": "__MSG_openSidepanel__"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "icons": {
+    "16": "icons/HotTeaLogo.png",
+    "48": "icons/HotTeaLogo.png",
+    "128": "icons/HotTeaLogo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "lib/readability.js",
+        "lib/readability-readerable.js",
+        "lib/content-extractor-unified.js",
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

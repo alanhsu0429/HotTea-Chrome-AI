@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "HotTea",
+  "version": "5.10",
+  "description": "Transform boring news into engaging friend group conversations with AI-powered storytelling",
+  "permissions": [
+    "sidePanel",
+    "tabs",
+    "scripting",
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://*.supabase.co/*",
+    "*://*/*"
+  ],
+  "oauth2": {
+    "client_id": "847443792962-32no6t9nj0tv5ugm0j9bt00beg6s72lc.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile"
+    ]
+  },
+  "action": {
+    "default_title": "開啟 HotTea 側邊欄"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "icons": {
+    "16": "icons/HotTeaLogo.png",
+    "48": "icons/HotTeaLogo.png",
+    "128": "icons/HotTeaLogo.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
