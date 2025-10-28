@@ -4,9 +4,13 @@
 import { logger } from '../utils/logger.js';
 import { askWithSearch } from '../api-client.js';
 import { getMessage, getCurrentLanguage } from '../utils/i18n-helper.js';
-import { currentUser, getUserDisplayName } from './sidepanel-auth.js';
 import { getCurrentDialogueData, addQAMessageToDialogue } from './sidepanel-dialogue.js';
 import { promptAPIService } from '../services/prompt-api-service.js';
+
+// Local helper function (no auth required)
+function getUserDisplayName() {
+  return getMessage('defaultUserName');
+}
 
 // Q&A history record
 export let qaHistory = []; // Store Q&A history context

@@ -7,21 +7,11 @@
     "sidePanel",
     "tabs",
     "scripting",
-    "storage",
-    "identity"
+    "storage"
   ],
   "host_permissions": [
-    "https://*.supabase.co/*",
     "*://*/*"
   ],
-  "oauth2": {
-    "client_id": "847443792962-32no6t9nj0tv5ugm0j9bt00beg6s72lc.apps.googleusercontent.com",
-    "scopes": [
-      "openid",
-      "email",
-      "profile"
-    ]
-  },
   "action": {
     "default_title": "開啟 HotTea 側邊欄"
   },
@@ -37,16 +27,6 @@
     "48": "icons/HotTeaLogo.png",
     "128": "icons/HotTeaLogo.png"
   },
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "config.json"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   }

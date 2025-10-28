@@ -32,19 +32,6 @@
     "message": "Never Mind",
     "description": "Cancel button - natural cancellation"
   },
-  "signOut": {
-    "message": "Sign Out",
-    "description": "Sign out button text"
-  },
-
-  "loginRequired": {
-    "message": "Please sign in with Google to use HotTea",
-    "description": "Login required error message"
-  },
-  "loginFailed": {
-    "message": "Login failed",
-    "description": "Login error message"
-  },
   "quotaExceeded": {
     "message": "Daily quota exceeded. Please try tomorrow.",
     "description": "Usage quota exceeded error"
@@ -81,12 +68,6 @@
     "message": "An unknown error occurred",
     "description": "Generic error message"
   },
-
-  "signInWithGoogle": {
-    "message": "Sign in with Google",
-    "description": "Google sign in button text"
-  },
-
   "defaultUserName": {
     "message": "User",
     "description": "Default user name"
@@ -283,10 +264,6 @@
   "backgroundScriptNotReady": {
     "message": "Background script not ready",
     "description": "Background script state error"
-  },
-  "configLoadFailed": {
-    "message": "Configuration load failed",
-    "description": "Config load error"
   },
   "responseProcessingError": {
     "message": "Response processing failed",

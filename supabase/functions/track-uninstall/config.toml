@@ -1,5 +1,0 @@
-# HotTea track-uninstall Edge Function 配置
-# 關閉 JWT 驗證，允許 Chrome Extension 的 setUninstallURL() 直接訪問
-
-# 關閉 JWT 驗證，因為 Chrome Extension 無法在 setUninstallURL 中帶上 Authorization Header
-verify_jwt = false

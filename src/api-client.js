@@ -1,6 +1,5 @@
 // api-client.js - Chrome Prompt API Client with Session Management
 import { logger } from './utils/logger.js';
-import { getSupabaseConfig } from './config.js';
 import { getMessage } from './utils/i18n-helper.js';
 import { promptAPIService } from './services/prompt-api-service.js';
 
@@ -254,37 +253,29 @@ async function callPromptApiStreamingJSONLines(prompt, signal, onMessage) {
 
         if (!trimmed) continue; // Skip if only markdown markers
 
-        // Extract all JSON objects from the line (handles multiple JSONs per line)
-        const jsonMatches = trimmed.match(/\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/g);
+        // Each line should be one complete JSON object (as per prompt design)
+        if (!trimmed.startsWith('{')) continue;
 
-        if (jsonMatches) {
-          for (const jsonStr of jsonMatches) {
-            try {
-              const parsed = JSON.parse(jsonStr);
+        try {
+          const parsed = JSON.parse(trimmed);
 
-              // Check if it's a summary or a message
-              if (parsed.summary) {
-                summary = parsed.summary;
-                logger.log(`📋 Summary received: ${summary.substring(0, 50)}...`);
-              } else if (parsed.speaker && parsed.content) {
-                messageCount++;
-                logger.log(`💬 Message ${messageCount}: ${parsed.speaker}`);
-                if (onMessage) {
-                  onMessage(parsed); // Call callback immediately
-                }
-              }
-            } catch (e) {
-              parseFailCount++;
-              // Only log first few errors to avoid spam
-              if (parseFailCount <= 3) {
-                logger.log(`⚠️ Parse failed (#${parseFailCount}): ${jsonStr.substring(0, 50)}...`);
-              }
+          // Check if it's a summary or a message
+          if (parsed.summary) {
+            summary = parsed.summary;
+            logger.log(`📋 Summary received: ${summary.substring(0, 50)}...`);
+          } else if (parsed.speaker && parsed.content) {
+            messageCount++;
+            logger.log(`💬 Message ${messageCount}: ${parsed.speaker}`);
+            if (onMessage) {
+              await onMessage(parsed); // Call callback immediately
             }
           }
-        } else {
+        } catch (e) {
           parseFailCount++;
+          // Only log first few errors to avoid spam
           if (parseFailCount <= 3) {
-            logger.log(`⚠️ No JSON found in line: ${trimmed.substring(0, 50)}...`);
+            logger.log(`⚠️ Parse failed (#${parseFailCount}): ${trimmed.substring(0, 50)}...`);
+            logger.log(`   Error: ${e.message}`);
           }
         }
       }
@@ -420,17 +411,4 @@ export async function getSuggestedQuestions(dialogue, newsContent, newsTitle, us
     session.destroy();
     logger.log('🗑️ Suggestions session destroyed');
   }
-}
-
-export async function registerUser(email, name) {
-  const { url, anonKey } = await getSupabaseConfig();
-  const response = await fetch(`${url}/rest/v1/rpc/register_or_get_user`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: anonKey, Authorization: `Bearer ${anonKey}` }, body: JSON.stringify({ user_email: email, user_name: name }) });
-  if (!response.ok) throw new Error((await response.json()).message || 'Failed to register user');
-  return (await response.json())[0];
-}
-
-export async function setUninstallToken(apiKey, token) {
-  const { url, anonKey } = await getSupabaseConfig();
-  const response = await fetch(`${url}/rest/v1/rpc/set_uninstall_token`, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: anonKey, Authorization: `Bearer ${anonKey}` }, body: JSON.stringify({ p_api_key: apiKey, p_token: token }) });
-  return response.ok;
 }

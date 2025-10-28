@@ -8,8 +8,17 @@ import {
   formatMessage,
   getCurrentLanguage
 } from '../utils/i18n-helper.js';
-import { getUserDisplayName, isUserSpeaker } from './sidepanel-auth.js';
 import { fetchAndDisplaySuggestions, resetSuggestions } from './sidepanel-suggestions.js';
+
+// Local helper functions (no auth required)
+function getUserDisplayName() {
+  return getMessage('defaultUserName');
+}
+
+function isUserSpeaker(speaker) {
+  const userName = getUserDisplayName();
+  return speaker === userName || speaker === 'User' || speaker === getMessage('defaultUserName');
+}
 
 // Global variables
 export let currentDialogueData = null; // Store current dialogue data for Q&A

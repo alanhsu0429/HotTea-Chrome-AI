@@ -2,15 +2,8 @@
 // Handles UI view switching, loading states, error display, etc.
 
 import { logger } from '../utils/logger.js';
-
 import { getMessage, getRandomLoadingMessage } from '../utils/i18n-helper.js';
 import { detectContentIssues, getContentIssueMessageKey } from '../utils/content-validator.js';
-import {
-  currentUser,
-  userStats,
-  refreshUserStats,
-  handleGoogleLogin
-} from './sidepanel-auth.js';
 import {
   displayDialogue,
   displayDialogueStreaming,
@@ -27,6 +20,11 @@ import { setupQAEventListeners, resetQAHistory } from './sidepanel-qa.js';
 import { resetSuggestions, renderSuggestions } from './sidepanel-suggestions.js';
 import { callGeminiAPIWithApiKeyStreamingJSONLines, getSuggestedQuestions } from '../api-client.js';
 
+// Simple user display name (no authentication required)
+function getUserDisplayName() {
+  return getMessage('defaultUserName'); // Returns "User" or localized equivalent
+}
+
 // UI state variables
 export let loadingInterval = null;
 export let loadingTimeoutId = null; // 10-second timer
@@ -41,53 +39,20 @@ export function setupEventListeners() {
 
 
   // Get DOM elements
-
-  const loginBtn = document.getElementById('loginBtn');
-
   const melonBtn = document.getElementById('melonBtn');
-
   const headerBackBtn = document.getElementById('headerBackBtn');
-
   const headerRegenerateBtn = document.getElementById('headerRegenerateBtn');
-
   const retryBtn = document.getElementById('retryBtn');
-
   const cancelLoadingBtn = document.getElementById('cancelLoadingBtn');
 
-
-
-  if (!loginBtn || !melonBtn || !headerBackBtn || !headerRegenerateBtn || !retryBtn || !cancelLoadingBtn) {
-
+  if (!melonBtn || !headerBackBtn || !headerRegenerateBtn || !retryBtn || !cancelLoadingBtn) {
     logger.error('❌ Some DOM elements not found, unable to bind events');
-
     return;
-
   }
 
-
-
-  // Login button - trigger Google login flow
-
-  loginBtn.addEventListener('click', async () => {
-
-    logger.log('🔑 Login button clicked');
-
-    try {
-
-      await handleGoogleLogin();
-
-    } catch (error) {
-
-      showError(error.message || getMessage('loginFailed'));
-
-    }
-
-  });
-
-
+  logger.log('✅ All DOM elements found, starting event binding');
 
   // Main button - directly trigger generation process
-
   melonBtn.addEventListener('click', handleMelonClick);
 
 
@@ -285,13 +250,6 @@ async function getCurrentTab() {
 // Handle melon button click (simplified version)
 
 async function handleMelonClick() {
-  // Check login status first
-  if (!currentUser) {
-    logger.error('❌ User not logged in, cannot proceed');
-    showError(getMessage('loginRequired'));
-    return;
-  }
-
   currentRequestController = new AbortController();
   showLoading();
 
@@ -334,9 +292,7 @@ async function handleMelonClick() {
 
     // [Core change] Call AI with JSON Lines streaming for progressive message display
     const { url, title, content } = articleData;
-    const stored = await chrome.storage.local.get(['currentUser']);
-    // Use first name from Google account, or default to "User" if not logged in
-    const userName = stored.currentUser?.name ? stored.currentUser.name.split(' ')[0] : getMessage('defaultUserName');
+    const userName = getMessage('defaultUserName');
     const userLanguage = chrome.i18n.getUILanguage();
 
     // Reset all UI states for new article

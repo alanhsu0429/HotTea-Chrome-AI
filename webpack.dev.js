@@ -28,7 +28,6 @@ const extensionConfig = {
     new CopyPlugin({
       patterns: [
         { from: "manifest.dev.json", to: "manifest.json" },
-        { from: "config.json", to: "config.json" },
         { from: "src/sidepanel.html", to: "sidepanel.html" },
         { from: "src/sidepanel.css", to: "sidepanel.css" },
         { from: "icons/", to: "icons/" },

@@ -4,7 +4,6 @@
 import { logger } from '../utils/logger.js';
 import { getMessage } from '../utils/i18n-helper.js';
 import { getSuggestedQuestions } from '../api-client.js';
-import { currentUser } from './sidepanel-auth.js';
 import { handleQASubmit } from './sidepanel-qa.js'; // Import the submit function
 
 // Suggested questions container

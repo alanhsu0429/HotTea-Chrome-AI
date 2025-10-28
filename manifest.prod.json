@@ -8,22 +8,11 @@
     "sidePanel",
     "tabs",
     "scripting",
-    "storage",
-    "identity",
-    "alarms"
+    "storage"
   ],
   "host_permissions": [
-    "https://*.supabase.co/*",
     "*://*/*"
   ],
-  "oauth2": {
-    "client_id": "847443792962-9h2v94ubln2h0fc83sv6dnicu9q82an0.apps.googleusercontent.com",
-    "scopes": [
-      "openid",
-      "email",
-      "profile"
-    ]
-  },
   "action": {
     "default_title": "__MSG_openSidepanel__"
   },
@@ -51,16 +40,6 @@
         "content.js"
       ],
       "run_at": "document_end"
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "config.json"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
     }
   ],
   "content_security_policy": {
